@@ -5,3 +5,4 @@
  
 # Maven: Archivos compilados
 target/
+/.metadata/
