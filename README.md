@@ -1,7 +1,6 @@
-# CapacitacionInicialGrupo4
-Curso de Capacitación 2018
+# CapacitacionInicialGrupo4 Curso de Capacitación 2018
 
-Como clonar el repositorio
+# Como clonar el repositorio
 
 1. crear con eclipse un nuevo proyecto maven, arquetipo web
 group id: Grupo4
@@ -22,6 +21,6 @@ artifact id: resto
 8. copiar/sincronizar los demas archivos de la carpeta temporal con la del proyecto eclipse 
 (incluyendo .git y .gitignore)
 
-9 comprobar que funciona tomcat (actualizar con f5)
+9. comprobar que funciona tomcat (actualizar con f5)
 
-10 cambiar a la perspectiva git y "add an existing local git repository"
+10. cambiar a la perspectiva git y "add an existing local git repository"
