@@ -1,8 +1,13 @@
 # Eclipse IDE: Archivos de configuracion
-.classpath
-.project
-.settings/
+resto/.classpath
+resto/.project
+resto/.settings/
+.recommenders/
+Servers/
+RemoteSystemsTempFiles/
  
 # Maven: Archivos compilados
-target/
-/.metadata/
+resto/target/
+.metadata/
+	
+
