@@ -56,4 +56,7 @@ public abstract class User {
 	public abstract List listFriends();
 	public abstract User searchFriend(String aUsername);
 	public abstract void recommendRestaurant(User aUser);
+	public abstract void voteRestaurant();
+	public abstract void voteMenu();
+	public abstract void votePlate();
 }
