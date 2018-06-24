@@ -74,5 +74,6 @@ public class ResponsableUser extends User {
 		// TODO Auto-generated method stub
 
 	}
-
+	@Override
+	public void addComment(String aComment,Plate aPlate) {}
 }

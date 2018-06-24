@@ -57,6 +57,7 @@ public abstract class User {
 	
 	public abstract String getRanking();
 	public abstract void addComment(String aComment);
+	public abstract void addComment(String aComment,Plate aPlate);
 	/*public abstract List listRecommendations();*/
 	public abstract List listFriends();
 	public abstract User searchFriend(String aUsername);
