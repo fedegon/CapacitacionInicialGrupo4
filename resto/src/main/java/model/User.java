@@ -1,6 +1,6 @@
 package model;
 
-import java.awt.List;
+import java.util.List;
 
 public abstract class User {
 	private String username;
@@ -9,6 +9,11 @@ public abstract class User {
 	private String password;
 	private String description;
 	private String photo;
+	
+	public User (String usname,String pass){
+		username=usname;
+		password=pass;
+	}
 	
 	public String getUsername() {
 		return username;

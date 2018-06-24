@@ -1,13 +1,23 @@
 package model;
 
-import java.awt.List;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class ResponsableUser extends User {
 	
-	/*private List myRestaurants;*/
+	private List<Restaurant> myRestaurants;
 	
+	 public ResponsableUser(String usname, String pass)//empty constructor
+	  {
+	   super(usname,pass);
+	   myRestaurants=new ArrayList<Restaurant>();
+	  }
+
 	
-	public void addRestaurant() {}
+	public void addRestaurant(Restaurant restaurant) {
+		myRestaurants.add(restaurant);
+	}
 	
 	public void removeRestaurant() {}
 	

@@ -1,9 +1,14 @@
 package model;
 
-import java.awt.List;
+import java.util.List;
 
 public class NormalUser extends User {
 
+	public NormalUser(String usname, String pass) {
+        super(usname, pass);
+        //do whatever you want to do in your constructor here
+    }
+	
 	@Override
 	public String getRanking() {
 		// TODO Auto-generated method stub
