@@ -40,7 +40,7 @@ public class ResponsableUser extends User {
 	}
 
 	@Override
-	public List listFriends() {
+	public List<User> listFriends() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -49,12 +49,6 @@ public class ResponsableUser extends User {
 	public User searchFriend(String aUsername) {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public void recommendRestaurant(User aUser) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -76,4 +70,18 @@ public class ResponsableUser extends User {
 	}
 	@Override
 	public void addComment(String aComment,Plate aPlate) {}
+
+
+	@Override
+	public void recommendRestaurant(User aUser, String aDescription, Restaurant aRestaurant) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void recommendRestaurantAllFriends(String aDescription, Restaurant aRestaurant) {
+		// TODO Auto-generated method stub
+		
+	}
 }

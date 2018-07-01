@@ -30,21 +30,23 @@ public class NormalUser extends User {
 	}
 
 	@Override
-	public List listFriends() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<User> listFriends() {
+		return this.getFriends();
 	}
-
+	
 	@Override
 	public User searchFriend(String aUsername) {
-		// TODO Auto-generated method stub
-		return null;
+		int index=this.getFriends().indexOf(aUsername);
+		if(index>0) {
+			return this.getFriends().get(index);
+		}else
+			return null;
 	}
 
 	@Override
-	public void recommendRestaurant(User aUser) {
-		// TODO Auto-generated method stub
-
+	public void recommendRestaurant(User aUser,String aDescription, Restaurant aRestaurant) {
+		Recommendation recommendation=new Recommendation(this,aDescription, aRestaurant);
+		aUser.addRecommendation(recommendation);
 	}
 
 	@Override
@@ -63,6 +65,14 @@ public class NormalUser extends User {
 	public void votePlate() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void recommendRestaurantAllFriends(String aDescription,Restaurant aRestaurant) {
+		Recommendation recommendation=new Recommendation(this,aDescription, aRestaurant);
+		for (User friend : this.getFriends()) {
+			friend.addRecommendation(recommendation);
+		}
 	}
 
 }
