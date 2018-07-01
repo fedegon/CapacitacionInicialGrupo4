@@ -35,8 +35,8 @@ public class NormalUser extends User {
 	}
 	
 	@Override
-	public User searchFriend(String aUsername) {
-		int index=this.getFriends().indexOf(aUsername);
+	public User searchFriend(User aUser) {
+		int index=this.getFriends().indexOf(aUser);
 		if(index>0) {
 			return this.getFriends().get(index);
 		}else

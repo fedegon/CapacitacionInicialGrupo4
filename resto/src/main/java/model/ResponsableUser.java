@@ -21,7 +21,7 @@ public class ResponsableUser extends User {
 	
 	public void removeRestaurant() {}
 	
-	public List listMyRestaurant() {
+	public List<Restaurant> listMyRestaurant() {
 		//list the restaurants added by the users
 		return null;}
 	
@@ -46,7 +46,7 @@ public class ResponsableUser extends User {
 	}
 
 	@Override
-	public User searchFriend(String aUsername) {
+	public User searchFriend(User aUser) {
 		// TODO Auto-generated method stub
 		return null;
 	}
