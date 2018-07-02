@@ -24,9 +24,8 @@ public class NormalUser extends User {
 	public void addComment(String aComment,Plate aPlate) {
 		PlateComment p_comment= new PlateComment();
 		p_comment.setComment(aComment);
-		//agregar a lista de comentarios de platos del usuario?
-		//agregar  el comentario a el plato
-		//actualizar ranking
+		getPlateComment().add(p_comment);
+		aPlate.addComment(p_comment);
 	}
 
 	@Override

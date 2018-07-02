@@ -1,11 +1,14 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Plate {
 	String name;
 	Double price;
 	Integer idPlate;
+	List<PlateComment> comments;
 
 	 public Plate()//empty constructor
 	  {
@@ -14,6 +17,7 @@ public class Plate {
 	    Random rand = new Random(); 
 	    int value = rand.nextInt(1000); //return random int between 0 y 999
 	    idPlate=value;
+	    comments=new ArrayList<PlateComment>();
 	  }
 
 	  public Plate(String plateName, Double platePrice) 
@@ -41,5 +45,9 @@ public class Plate {
 	}
 	public void setIdPlate(Integer idPlate) {
 		this.idPlate = idPlate;
+	}
+	
+	public void addComment(PlateComment p_comment) {
+		comments.add(p_comment);
 	}
 }

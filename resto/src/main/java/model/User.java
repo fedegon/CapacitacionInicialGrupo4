@@ -12,6 +12,7 @@ public abstract class User {
 	private String photo;
 	private List<User> friends;
 	private List<Recommendation> recommendatios;
+	private List<PlateComment> plateComment;
 	
 	public List<User> getFriends() {
 		return friends;
@@ -29,7 +30,8 @@ public abstract class User {
 		password=pass;
 		friends=new ArrayList<User>() ;
 		recommendatios=new ArrayList<Recommendation>();
-	}
+		plateComment=new ArrayList<PlateComment>();
+		}
 	
 	public String getUsername() {
 		return username;
@@ -135,4 +137,11 @@ public abstract class User {
 		return true;
 	}
 	
+	public List<PlateComment> getPlateComment() {
+		return plateComment;
+	}
+
+	public void setPlateComment(List<PlateComment> plateComment) {
+		this.plateComment = plateComment;
+	}
 }
