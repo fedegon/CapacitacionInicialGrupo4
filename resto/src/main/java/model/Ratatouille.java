@@ -59,38 +59,15 @@ public class Ratatouille {
 		return aux;
 	}
 	
-	/**
-	 * Return a List of users with ranking
-	 * @param ranking (visit, comensal, gourmet)
-	 * @return a List with Users
-	 */
 	public List<User> getUsersByRanking(String ranking) {
 		List<User> aux = new LinkedList<User>();
-		for (User user : users) {
-			if (user.getRanking().equalsIgnoreCase(ranking)) {
-				aux.add(user);
-			}
-		}
+		// TODO Listar la cantidad total de usuarios visitantes / comensales / gourmets (ranking)
 		return aux;
 	}
 	
-	/**
-	 * Return a List of restaurants with max comments from startDate to endDate
-	 * @param startDate 
-	 * @param endDate
-	 * @return a List of restaurants
-	 */
 	public List<Restaurant> getRestaurantsWithMaxComments(Date startDate, Date endDate) {
 		List<Restaurant> aux = new LinkedList<Restaurant>();
-		List<Comment> auxComments;
-		for (Restaurant restaurant : restaurants) {
-			auxComments = restaurant.getComments();
-			for (Comment comment : auxComments) {
-				if (comment.date.after(startDate) && comment.date.before(endDate)) {
-					//TODO: faltar completar que hace cuando tiene un comentario
-				}
-			}
-		}
+		// TODO Listar los restaurants que tuvieron más comentarios en un determinado rango de fechas.
 		return aux;
 	}
 	
