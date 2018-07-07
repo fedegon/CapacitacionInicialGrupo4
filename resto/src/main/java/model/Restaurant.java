@@ -114,6 +114,11 @@ public class Restaurant {
 	public void setIdRestaurant(Integer idRestaurant) {
 		this.idRestaurant = idRestaurant;
 	}
+
+	public List<Comment> getComments() {
+		return null;
+		// TODO Auto-generated method stub
+	}
 	
 
 }
