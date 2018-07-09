@@ -67,4 +67,5 @@ class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	<property name="sessionFactory" ref="sessionFactory" />	
 </bean>
 <tx:annotation-driven transaction-manager="transactionManager" />
+<!-- Change -->
 </beans>
