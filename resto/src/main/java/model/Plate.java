@@ -4,29 +4,42 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+
+@Entity
+@Table(name="plate")
 public class Plate {
+	@Id
+	@GeneratedValue()
+	private long id;
+	@Column
 	String name;
+	@Column
 	Double price;
-	Integer idPlate;
+	@Column
+	String description;
+	@Transient
 	List<PlateComment> comments;
 
 	 public Plate()//empty constructor
 	  {
 	    name = "";
 	    price = 0.0;
-	    Random rand = new Random(); 
-	    int value = rand.nextInt(1000); //return random int between 0 y 999
-	    idPlate=value;
+	    description="";
 	    comments=new ArrayList<PlateComment>();
 	  }
 
-	  public Plate(String plateName, Double platePrice) 
+	  public Plate(String plateName, Double platePrice,String descrip) 
 	  {
 	    name = plateName;
 	    price = platePrice;
-	    Random rand = new Random(); 
-	    int value = rand.nextInt(1000); //return random int between 0 y 999
-	    idPlate=value;
+	    description=descrip;
 	  }
 	public String getName() {
 		return name;
@@ -40,14 +53,25 @@ public class Plate {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
-	public Integer getIdPlate() {
-		return idPlate;
-	}
-	public void setIdPlate(Integer idPlate) {
-		this.idPlate = idPlate;
-	}
+	
 	
 	public void addComment(PlateComment p_comment) {
 		comments.add(p_comment);
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

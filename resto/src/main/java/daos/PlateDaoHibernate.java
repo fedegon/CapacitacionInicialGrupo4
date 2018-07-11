@@ -23,6 +23,7 @@ public class PlateDaoHibernate extends GenericDaoHibernate<Plate> implements Pla
 	}
 	
 	public Long createPlate(Plate p) {
+		this.save(p);
 		Long aux=(long) 8909;
 		return aux;
 	}
