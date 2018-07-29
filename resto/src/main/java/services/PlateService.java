@@ -3,7 +3,7 @@ package services;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import model.Plate;
-
+//CHEQUEAR SI ESTA BIEN
 public interface PlateService {
 	
 	

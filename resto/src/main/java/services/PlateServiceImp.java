@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import daos.PlateDao;
 import model.Plate;
-
+//CREO QUE FALTABA AGREGAR ESTO
 @Service
 @Transactional
 public class PlateServiceImp implements PlateService {
