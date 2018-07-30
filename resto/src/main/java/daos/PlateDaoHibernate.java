@@ -9,7 +9,7 @@ import model.Plate;
 @Repository
 public class PlateDaoHibernate extends GenericDaoHibernate<Plate> implements PlateDao {
 	@Autowired
-	private HibernateUtil util;
+	//private HibernateUtil util;
 	
 	public PlateDaoHibernate() {
 		// TODO Auto-generated constructor stub
@@ -19,7 +19,7 @@ public class PlateDaoHibernate extends GenericDaoHibernate<Plate> implements Pla
 	@Override
 	@Transactional
 	 public void update(Plate p) {
-		util.update(p);
+		this.update(p);
 	}
 	
 	public Long createPlate(Plate p) {
