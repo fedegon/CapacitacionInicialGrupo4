@@ -24,7 +24,8 @@ public class MainController {
 	@RequestMapping(value= {"index","/","/resto/index"},produces="text/plain;charset=UTF-8")
 		public ModelAndView method() {
 		System.out.println("holaaaaaaaaaaa");
-		plateDao.createPlate(new Plate("Asado", 120.00, "Bien rico"));
+		plateService.createPlate(new Plate("Pizzas", 120.00, "Bien rico"));
+		//plateDao.createPlate(new Plate("Tartas", 120.00, "Bien rico"));
 		return new ModelAndView("index");
 	}
 
