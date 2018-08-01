@@ -8,6 +8,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -26,6 +28,9 @@ public class Plate {
 	String description;
 	@Transient
 	List<PlateComment> comments;
+	@ManyToOne
+    @JoinColumn(name="menu_id", nullable=false)
+	private Menu menu;
 
 	 public Plate()//empty constructor
 	  {
@@ -34,7 +39,13 @@ public class Plate {
 	    description="";
 	    comments=new ArrayList<PlateComment>();
 	  }
-
+	  public Plate(String plateName, Double platePrice,String descrip,Menu menu) 
+	  {
+		this.menu=menu;  
+	    name = plateName;
+	    price = platePrice;
+	    description=descrip;
+	  }
 	  public Plate(String plateName, Double platePrice,String descrip) 
 	  {
 	    name = plateName;
