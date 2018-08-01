@@ -2,19 +2,29 @@ package model;
 
 import java.util.Random;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="location")
 public class Location {
-Double latitude;
-Double longitude;
-Integer idLocation;
+	@Id
+	@GeneratedValue()
+	private long id;
+	@Column
+	Double latitude;
+	@Column
+	Double longitude;
+	
 
 
 public Location(Double lati, Double longi) 
 {
   latitude=lati;
   longitude=longi;
-  Random rand = new Random(); 
-  int value = rand.nextInt(1000); //return random int between 0 y 999
-  idLocation=value;
 }
 
 
@@ -30,11 +40,16 @@ public Double getLongitude() {
 public void setLongitude(Double longitude) {
 	longitude = longitude;
 }
-public Integer getIdLocation() {
-	return idLocation;
+
+
+public long getId() {
+	return id;
 }
-public void setIdLocation(Integer idLocation) {
-	this.idLocation = idLocation;
+
+
+public void setId(long id) {
+	this.id = id;
 }
+
 
 }
