@@ -4,10 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="menu")
 public class Menu {
-	private Integer idMenu;
+	@Id
+	@GeneratedValue()
+	private Integer id;
+	@OneToMany(mappedBy="menu", cascade= CascadeType.ALL)
 	private List<Plate> plateList;
+	@Column
 	private Double price;
+	@Column
 	private String name;
 
 	public Menu() 
@@ -16,7 +33,7 @@ public class Menu {
 	    price=0.0;
 	    Random rand = new Random(); 
 	    int value = rand.nextInt(1000); //return random int between 0 y 999
-	    idMenu=value;
+	    id=value;
 	  }
 	
 	public List getPlateList() {
@@ -32,11 +49,11 @@ public class Menu {
 	}
 
 	public Integer getIdMenu() {
-		return idMenu;
+		return id;
 	}
 
 	public void setIdMenu(Integer idMenu) {
-		this.idMenu = idMenu;
+		this.id = idMenu;
 	}
 
 	public Double getPrice() {
