@@ -3,15 +3,33 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+@Entity
 public abstract class User {
+	@Id
+	@GeneratedValue()
+	private long id;
+	@Column
 	private String username;
+	@Column
 	private String name;
+	@Column
 	private String lastname;
+	@Column
 	private String password;
+	@Column
 	private String description;
+	@Column
 	private String photo;
+	@Transient
 	private List<User> friends;
+	@Transient
 	private List<Recommendation> recommendatios;
+	@Transient
 	private List<PlateComment> plateComment;
 	
 	public List<User> getFriends() {

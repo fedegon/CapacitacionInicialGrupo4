@@ -2,6 +2,10 @@ package model;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+@Entity
+@Table(name="normaluser")
 public class NormalUser extends User {
 
 	public NormalUser(String usname, String pass) {
