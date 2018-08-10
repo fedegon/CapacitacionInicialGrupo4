@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -26,14 +27,24 @@ public class Menu {
 	private Double price;
 	@Column
 	private String name;
+	
+	@ManyToOne
+    @JoinColumn(name="restaurant_id", nullable=false)
+	private Restaurant restaurant;
+	
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
+	}
 
 	public Menu() 
 	  {
 	    plateList=new ArrayList<Plate>();//VER SI DEJAMOS ARRAYLIST U OTRO TIPO DE ESTRUCTURA
 	    price=0.0;
 	    Random rand = new Random(); 
-	    int value = rand.nextInt(1000); //return random int between 0 y 999
-	    id=value;
 	  }
 	
 	public List getPlateList() {
