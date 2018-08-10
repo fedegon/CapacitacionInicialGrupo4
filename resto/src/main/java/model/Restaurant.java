@@ -4,16 +4,40 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="restaurant")
 public class Restaurant {
+
+	@Column
 	private String name;
+	@Transient
 	private Location location; //agregue esta var porque cada rest tiene un location 
+	@Column
 	private String email;
+	@Column
 	private String phone;
+	@Column
 	private String category;
+	@Column
 	private String address;
+	@OneToMany(mappedBy="restaurant", cascade= CascadeType.ALL)
 	private List<Menu> menuList;
-	private Integer idRestaurant;
+	@Id
+	@GeneratedValue()
+	private long idRestaurant;
 	
+	public Restaurant(String name, String email, String phone, String category, String address) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.category = category;
+		this.address = address;
+		this.menuList=new ArrayList<Menu>();
+	}
+
 	
 	public Restaurant(String r_name) //constructor
 	{
@@ -107,11 +131,11 @@ public class Restaurant {
 		menu.addPlate(plate);
 	}
 
-	public Integer getIdRestaurant() {
+	public long getIdRestaurant() {
 		return idRestaurant;
 	}
 
-	public void setIdRestaurant(Integer idRestaurant) {
+	public void setIdRestaurant(long idRestaurant) {
 		this.idRestaurant = idRestaurant;
 	}
 	
