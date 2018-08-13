@@ -9,7 +9,8 @@ import javax.persistence.*;
 @Entity
 @Table(name="restaurant")
 public class Restaurant {
-
+	
+	
 	@Column
 	private String name;
 	@Transient
@@ -26,7 +27,9 @@ public class Restaurant {
 	private List<Menu> menuList;
 	@Id
 	@GeneratedValue()
-	private long idRestaurant;
+	private long id;
+	
+	public Restaurant() {}
 	
 	public Restaurant(String name, String email, String phone, String category, String address) {
 		super();
@@ -39,13 +42,27 @@ public class Restaurant {
 	}
 
 	
+	public Restaurant(String name, Location location, String email, String phone, String category, String address,
+			List<Menu> menuList, long idRestaurant) {
+		super();
+		this.name = name;
+		this.location = location;
+		this.email = email;
+		this.phone = phone;
+		this.category = category;
+		this.address = address;
+		this.menuList = menuList;
+		this.id = idRestaurant;
+	}
+
+
 	public Restaurant(String r_name) //constructor
 	{
 	  name=r_name;
 	  menuList=new ArrayList<Menu>();
 	  Random rand = new Random(); 
 	  int value = rand.nextInt(1000); //return random int between 0 y 999
-	  idRestaurant=value;
+	  id=value;
 	}
 	
 	/*public Restaurant(String r_name, String r_email,String r_phone,String r_category,String r_address) //constructor
@@ -132,11 +149,11 @@ public class Restaurant {
 	}
 
 	public long getIdRestaurant() {
-		return idRestaurant;
+		return id;
 	}
 
 	public void setIdRestaurant(long idRestaurant) {
-		this.idRestaurant = idRestaurant;
+		this.id= idRestaurant;
 	}
 	
 
