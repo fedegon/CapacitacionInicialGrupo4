@@ -29,7 +29,7 @@ public class Menu {
 	@Column
 	private String name;
 	
-	@ManyToOne(optional=false, fetch=FetchType.EAGER)
+	@ManyToOne(optional=false, fetch=FetchType.LAZY)
     @JoinColumn(name="restaurant_id", nullable=false)
 	private Restaurant restaurant;
 	

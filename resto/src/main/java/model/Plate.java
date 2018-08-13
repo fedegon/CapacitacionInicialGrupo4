@@ -29,7 +29,7 @@ public class Plate {
 	String description;
 	@Transient
 	List<PlateComment> comments;
-	@ManyToOne(optional=false,fetch=FetchType.EAGER)
+	@ManyToOne(optional=false,fetch=FetchType.LAZY)
     @JoinColumn(name="menu_id", nullable=false)
 	private Menu menu;
 

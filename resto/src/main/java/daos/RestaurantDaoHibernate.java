@@ -36,7 +36,6 @@ public class RestaurantDaoHibernate implements RestaurantDao {
 	@Override
 	@Transactional
 	public Restaurant findById(long id) {
-		System.out.println("entre en el metodo");
 		return util.getElement(Restaurant.class, id);
 	}
 	@Override
