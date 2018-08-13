@@ -2,6 +2,8 @@ package daos;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -32,11 +34,11 @@ public class RestaurantDaoHibernate implements RestaurantDao {
 	}
 
 	@Override
-	public Restaurant findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	@Transactional
+	public Restaurant findById(long id) {
+		System.out.println("entre en el metodo");
+		return util.getElement(Restaurant.class, id);
 	}
-
 	@Override
 	public void update(Restaurant entity) {
 		// TODO Auto-generated method stub

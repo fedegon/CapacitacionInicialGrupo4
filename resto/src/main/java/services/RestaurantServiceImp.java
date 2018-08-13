@@ -15,5 +15,10 @@ public class RestaurantServiceImp implements RestaurantService {
 		// TODO Auto-generated method stub
 		return restaurantDao.createRestaurant(r);
 	}
+	@Override
+	public Restaurant getRestaurantByID(long id) {
+		// TODO Auto-generated method stub
+		return restaurantDao.findById(id);
+	}
 
 }
