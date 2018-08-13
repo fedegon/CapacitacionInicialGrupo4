@@ -33,6 +33,10 @@ public class HibernateUtil<T> {
 	public <T> Serializable create(T entity) {
 		return sessionFactory.getCurrentSession().save(entity);
 	}
+	
+	public <T> T getElement(Class<T> entityClass, long id) {
+		return sessionFactory.getCurrentSession().get(entityClass, id);
+	}
 
 	public void update(T entity) {
 		sessionFactory.getCurrentSession().update(entity);
