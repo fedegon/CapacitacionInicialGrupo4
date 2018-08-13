@@ -78,7 +78,7 @@ public class GenericDaoHibernate<T> implements GenericDao<T> {
 	
 	
 	
-	public T findById(int id){
+	public T findById(long id){
 		
 		T resultado = (T)"hola";
 		return resultado;

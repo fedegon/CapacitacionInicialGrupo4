@@ -42,7 +42,7 @@ public class MenuDaoHibernate implements MenuDao {
 	}
 
 	@Override
-	public Menu findById(int id) {
+	public Menu findById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

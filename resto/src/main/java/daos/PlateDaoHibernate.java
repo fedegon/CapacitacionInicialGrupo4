@@ -52,7 +52,7 @@ public class PlateDaoHibernate implements PlateDao {
 	}
 
 	@Override
-	public Plate findById(int id) {
+	public Plate findById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

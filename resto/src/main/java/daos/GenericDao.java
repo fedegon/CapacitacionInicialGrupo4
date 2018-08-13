@@ -7,7 +7,7 @@ public interface GenericDao<T>{
 		public void save(T tipo);
 		public List<T> toList();
 		public T persist(T entity);
-		public T findById(int id);
+		public T findById(long id);
 		public void update(T entity);
 		public void delete(T entity);
 		public void deleteAll();

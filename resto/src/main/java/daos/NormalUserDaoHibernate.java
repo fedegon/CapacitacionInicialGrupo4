@@ -31,7 +31,7 @@ public class NormalUserDaoHibernate implements NormalUserDao {
 	}
 
 	@Override
-	public NormalUser findById(int id) {
+	public NormalUser findById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
