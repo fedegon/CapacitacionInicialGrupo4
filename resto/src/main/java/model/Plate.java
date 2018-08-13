@@ -6,6 +6,7 @@ import java.util.Random;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -28,7 +29,7 @@ public class Plate {
 	String description;
 	@Transient
 	List<PlateComment> comments;
-	@ManyToOne
+	@ManyToOne(optional=false,fetch=FetchType.EAGER)
     @JoinColumn(name="menu_id", nullable=false)
 	private Menu menu;
 

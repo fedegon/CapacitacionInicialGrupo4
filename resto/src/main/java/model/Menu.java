@@ -7,6 +7,7 @@ import java.util.Random;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -28,7 +29,7 @@ public class Menu {
 	@Column
 	private String name;
 	
-	@ManyToOne
+	@ManyToOne(optional=false, fetch=FetchType.EAGER)
     @JoinColumn(name="restaurant_id", nullable=false)
 	private Restaurant restaurant;
 	
