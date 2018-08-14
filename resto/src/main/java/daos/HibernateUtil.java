@@ -41,4 +41,7 @@ public class HibernateUtil<T> {
 	public void update(T entity) {
 		sessionFactory.getCurrentSession().update(entity);
 	}
+	public void delete(T entity) {
+		sessionFactory.getCurrentSession().delete(entity);
+	}
 }
