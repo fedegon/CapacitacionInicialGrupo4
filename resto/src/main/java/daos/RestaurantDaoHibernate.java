@@ -39,15 +39,16 @@ public class RestaurantDaoHibernate implements RestaurantDao {
 		return util.getElement(Restaurant.class, id);
 	}
 	@Override
+	@Transactional
 	public void update(Restaurant entity) {
-		// TODO Auto-generated method stub
+		util.update(entity);
 
 	}
 
 	@Override
+	@Transactional
 	public void delete(Restaurant entity) {
-		// TODO Auto-generated method stub
-
+		util.delete(entity);
 	}
 
 	@Override

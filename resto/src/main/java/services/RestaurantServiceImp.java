@@ -20,5 +20,13 @@ public class RestaurantServiceImp implements RestaurantService {
 		// TODO Auto-generated method stub
 		return restaurantDao.findById(id);
 	}
+	@Override
+	public void updateRestaurant(Restaurant r) {
+		restaurantDao.update(r);
+	}
+	@Override
+	public void deleteRestaurant(Restaurant r) {
+		restaurantDao.delete(r);
+	}
 
 }
