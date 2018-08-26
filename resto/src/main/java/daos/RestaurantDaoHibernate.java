@@ -1,5 +1,6 @@
 package daos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -68,6 +69,12 @@ public class RestaurantDaoHibernate implements RestaurantDao {
 		util.create(r);
 		Long aux=(long) 8909;
 		return aux;
+	}
+
+	@Override
+	@Transactional
+	public List<Restaurant> getFirstTenRestaurant() {
+		return util.getElements(Restaurant.class, 10);
 	}
 
 }
