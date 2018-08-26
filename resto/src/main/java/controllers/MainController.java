@@ -3,26 +3,23 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import daos.HibernateUtil;
-import daos.PlateDao;
-import daos.PlateDaoHibernate;
-import export.ExportJSON;
-import model.Menu;
+import dto.RestaurantDTO;
+import export.ExportData;
+import export.ExportWithGSON;
 import model.NormalUser;
-import model.Plate;
-import model.Restaurant;
 import services.MenuService;
 import services.NormalUserService;
 import services.PlateService;
 import services.RestaurantService;
-
+@CrossOrigin(origins = "http://localhost:4200", maxAge=3600)
 @Controller
 public class MainController {
 	@Autowired 
@@ -42,7 +39,7 @@ public class MainController {
 		public ModelAndView method() {
 		System.out.println("holaaaaaaaaaaa");
 		NormalUser user= new NormalUser("Ale2", "123456");
-		ExportJSON<NormalUser> export=new ExportJSON<NormalUser>();
+		ExportWithGSON<NormalUser> export=new ExportWithGSON<NormalUser>();
 		System.out.println(export.exportObject(user));
 		//hibernateUtil.create(user);
 		/*normaUserService.createUser(user);*/
@@ -63,12 +60,25 @@ public class MainController {
 		menuService.createMenu(menu);
 		
 		plateService.createPlate(new Plate("PizzasSolo", 120.00, "Bien rico",menu));*/
-		/*Restaurant resto=restoService.getRestaurantByID(23);
-		System.out.println(resto.getName());
-		restoService.deleteRestaurant(resto);*/
+		//Restaurant resto2=restoService.getRestaurantByID(23);
+		//System.out.println(resto2.getName());/*
+		//restoService.deleteRestaurant(resto);*/
 		
 		return new ModelAndView("index");
 	}
+	@RequestMapping(value = "/getString", method = RequestMethod.GET, headers = "Accept=application/json")
+	public ResponseEntity<String> testJSON() {
+		ExportData export=new ExportWithGSON<ArrayList<RestaurantDTO>>();
+		System.out.println("test");
+		return export.exportObjectToHttp(restoService.getFirstTenRestaurant());
+	}
 
+	@RequestMapping(value = "/getJSON", method = RequestMethod.GET, headers = "Accept=application/json")
+	public ResponseEntity<String> testJSON2() {
+		System.out.println("holaaaaaaaaaaa JSON");
+		RestaurantDTO resto=restoService.getRestaurantByID(25);
+		ExportData export=new ExportWithGSON<RestaurantDTO>();
+		return export.exportObjectToHttp(resto);
+	}
 
 }
