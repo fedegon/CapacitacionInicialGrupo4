@@ -1,0 +1,22 @@
+<div class="searchResto">
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Nombre de Restaurant" aria-label="Nombre de Restaurant" aria-describedby="button-addon2">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary fa fa-search" type="button" id="button-addon2"></button>
+    </div>
+  </div>
+</div>
+<div class="listResto">
+  <div class="list-group">
+    <ul>
+      <li class="list-group-item" *ngFor="let resto of restaurants$">
+        <a routerLink="/restaurant/{{resto.id}}">
+          {{resto.name}}
+        </a>
+        <button (click)="deleteResto(resto.id);" class="btn-trash fa fa-trash"></button>
+        <a routerLink="restaurant-edit/{{resto.id}}" class="btn-edit fa fa-edit"></a>
+        
+      </li>
+    </ul>
+  </div>
+</div>
