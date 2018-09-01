@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RestaurantService } from '../restaurant.service';
 
 @Component({
@@ -19,11 +19,12 @@ export class RestaurantEditComponent implements OnInit {
   public phone: String;
   public id: String;
   constructor(private dataService: RestaurantService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe(params => this.pageGet$ = params.id);
   }
 
   ngOnInit() {
+
     this.dataService.getRestaurantConParam(this.pageGet$).subscribe(
       resto => this.restaurantsGetParam$ = resto,
       error => this.restaurantsGetParam$ = { name: "Error =(" }
@@ -35,6 +36,7 @@ export class RestaurantEditComponent implements OnInit {
       id => this.resp$ = id,
       error => this.resp$ = { name: "Error" }
     );
+    this.router.navigate(['/restaurant/' + this.pageGet$.toString()]);
   }
 
 }

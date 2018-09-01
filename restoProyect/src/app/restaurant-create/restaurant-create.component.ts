@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestaurantService } from '../restaurant.service';
+import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-restaurant-create',
@@ -13,7 +14,7 @@ export class RestaurantCreateComponent implements OnInit {
   public phone: String;
 
   public resp$: Object;
-  constructor(private serviceResto: RestaurantService) { }
+  constructor(private serviceResto: RestaurantService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -23,6 +24,7 @@ export class RestaurantCreateComponent implements OnInit {
       id => this.resp$ = id,
       error => this.resp$ = { name: "Error" }
     );
+    this.router.navigate(['/restaurant']);
   }
 
 }
