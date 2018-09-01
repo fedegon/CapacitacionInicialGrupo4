@@ -4,14 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
+
 import dto.RestaurantDTO;
+import dto.RestaurantTransferAtDTO;
 import export.ExportData;
 import export.ExportWithGSON;
 import model.NormalUser;
@@ -73,12 +80,35 @@ public class MainController {
 		return export.exportObjectToHttp(restoService.getFirstTenRestaurant());
 	}
 
-	@RequestMapping(value = "/getJSON", method = RequestMethod.GET, headers = "Accept=application/json")
-	public ResponseEntity<String> testJSON2() {
+	@RequestMapping(value = "/restaurant/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
+	public ResponseEntity<String> testJSON2(@PathVariable("id") long id) {
 		System.out.println("holaaaaaaaaaaa JSON");
-		RestaurantDTO resto=restoService.getRestaurantByID(25);
+		RestaurantDTO resto=restoService.getRestaurantByID(id);
 		ExportData export=new ExportWithGSON<RestaurantDTO>();
 		return export.exportObjectToHttp(resto);
 	}
-
+	
+	@RequestMapping(value="/createResto", headers="Accept=*/*", method = RequestMethod.POST, produces="application/json;")
+	public @ResponseBody ResponseEntity<String> sendInfo(@RequestBody String object){
+		System.out.println("entre controlador");
+		RestaurantDTO rDTO = new Gson().fromJson(object, RestaurantDTO.class);
+		restoService.createRestaurant(RestaurantTransferAtDTO.transferAtRestaurant(rDTO));
+		return new ResponseEntity<String>("",HttpStatus.OK);
+	}
+	@RequestMapping(value="/updateResto", headers="Accept=*/*", method = RequestMethod.POST, produces="application/json;")
+	public @ResponseBody ResponseEntity<String> sendInfoEdit(@RequestBody String object){
+		System.out.println("entre controlador edit");
+		RestaurantDTO rDTO = new Gson().fromJson(object, RestaurantDTO.class);
+		System.out.println(rDTO.getId());
+		restoService.updateRestaurant(RestaurantTransferAtDTO.transferAtRestaurant(rDTO));
+		return new ResponseEntity<String>("",HttpStatus.OK);
+	}
+	@RequestMapping(value="/deleteResto", headers="Accept=*/*", method = RequestMethod.POST, produces="application/json;")
+	public @ResponseBody ResponseEntity<String> sendInfoDelete(@RequestBody String object){
+		System.out.println("entre controlador delete");
+		RestaurantDTO rDTO = new Gson().fromJson(object, RestaurantDTO.class);
+		System.out.println(rDTO.getId());
+		restoService.deleteRestaurant(RestaurantTransferAtDTO.transferAtRestaurant(rDTO));
+		return new ResponseEntity<String>("test mensaje",HttpStatus.OK);
+	}
 }
