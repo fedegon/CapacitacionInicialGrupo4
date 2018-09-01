@@ -11,6 +11,7 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
 import { RestaurantCreateComponent } from './restaurant-create/restaurant-create.component';
 import { RestaurantEditComponent } from './restaurant-edit/restaurant-edit.component';
+import { AlertsModule } from 'angular-alert-module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { RestaurantEditComponent } from './restaurant-edit/restaurant-edit.compo
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AlertsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
