@@ -31,12 +31,26 @@ public class RestaurantServiceImp implements RestaurantService {
 
 	@Override
 	public void updateRestaurant(Restaurant r) {
-		restaurantDao.update(r);
+		Restaurant resto=restaurantDao.findById(r.getIdRestaurant());
+		try {
+			resto.setName(r.getName());
+			resto.setAddress(r.getAddress());
+			resto.setPhone(r.getPhone());
+			resto.setEmail(r.getEmail());
+			restaurantDao.update(resto);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	@Override
 	public void deleteRestaurant(Restaurant r) {
-		restaurantDao.delete(r);
+		Restaurant resto=restaurantDao.findById(r.getIdRestaurant());
+		try {
+			restaurantDao.delete(resto);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	@Override
