@@ -57,6 +57,9 @@ public class HibernateUtil<T> {
 	public void delete(T entity) {
 		sessionFactory.getCurrentSession().delete(entity);
 	}
+	public void merge(T entity) {
+		sessionFactory.getCurrentSession().merge(entity);
+	}
 	private String formatClass(String value) {
 		return value.substring(6);
 	}
